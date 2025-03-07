@@ -22,7 +22,7 @@ def train_and_test(config_path):
     for class_name in classes:
         os.makedirs(os.path.join(dest, 'train', class_name), exist_ok=True)
         os.makedirs(os.path.join(dest, 'test', class_name), exist_ok=True)
-    training_dir=os.path.join(root_dir ,"Training ")
+    training_dir=os.path.join(root_dir ,"Training")
     for class_name in classes:
         src_dir=os.path.join(training_dir,class_name)
         if not os.path.exists(src_dir):

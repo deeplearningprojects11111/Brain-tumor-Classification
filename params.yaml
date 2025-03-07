@@ -18,24 +18,26 @@ train:
 
 model:
     name: VGG19
-    trainable: False
+    trainable: True
     train_path: data/processed/train
     test_path: data/processed/test
     optimizer: adam   
     loss: categorical_crossentropy  
     metrics: ["accuracy"]
     epochs: 1
+    image_size: [255,255]
     # batch_size:32
     sav_dir: models/trained.h5
-
+ 
 img_augment:
-    rescale:1./255
-    shear_range:0.2
-    zoom_range:0.2
-    horizontal_flip:True
-    rotation_range:20
-    batch_size:32
-    class_mode:'categorical'
+    rescale: 0.00392156862745098
+    shear_range: 0.2
+    zoom_range: 0.2
+    horizontal_flip: True
+    vertical_flip: True
+    rotation_range: 20
+    batch_size: 32
+    class_mode: 'categorical'
 
 model_dir: models
 
@@ -44,6 +46,6 @@ mlflow_config:
     experiment_name: deep_learning_VGG19
     run_name: mlops
     registered_model_name: deep_learning_VGG19
-    remote_server_uri: http://172.0.0.1:5000
+    remote_server_uri: http://127.0.0.1:5000
     
     
